@@ -1,0 +1,101 @@
+{% extends 'master.html' %}
+
+{% block title %} Index Page {% endblock %}
+
+{% block content %}
+	<script type="text/javascript">
+		function add() {
+			alert("Task added to TodoList");
+		}
+	</script>
+	<nav class="navbar fixed-top navbar-dark bg-dark">
+	  <span class="navbar-brand mb-0 h1">Mytodo List...</span>
+	</nav>
+	<section class="vh-100 gradient-custom">
+	  <div class="container py-5 h-100">
+	    <div class="row d-flex justify-content-center align-items-center h-100">
+	      <div class="col col-xl-10">
+	      	
+	        <div class="card">
+	          <div class="card-body p-5">
+	          	<nav>
+				  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+				    <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Add New Tasks</button>
+				    <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Finish Tasks</button>
+				   <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Delete Tasks</button>
+				  </div>
+				</nav>
+				<div class="tab-content" id="nav-tabContent">
+				  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+				  	<br>
+				  	<form method="POST" id="add">
+						{% csrf_token %}
+						<input type="hidden" name="form_type" value="add">
+						<div class="form-group">
+							<label for="exampleInputPassword1">Task:</label> 
+							<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Type New Task" name="task">
+						</div>
+						<br>
+						<div class="form-group">
+							<label for="exampleInputPassword1">Priority:</label>
+							<select name="pri" class="form-control" id="exampleFormControlSelect1">
+								<option selected>----</option>
+								<option value="1">High</option>
+								<option value="2">Middle</option>
+								<option value="3">Low</option>
+							</select>
+						</div>
+						<br>
+						<div class="form-group">
+							<label for="exampleInputPassword1">Date:</label>
+							<input type="date" name="date">
+						</div>
+						<br>
+						<button type="submit" class="btn btn-warning" onclick="add()">Add Task</button>
+					</form>
+				  </div>
+				  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
+				  	<br>
+				  	<form method="POST" id="del">
+						{% csrf_token %}
+						<input type="hidden" name="form_type" value="del">
+						<div class="form-group">
+							<label for="exampleInputPassword1">Task ID:</label>
+							<input type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter Task ID" name="index">
+						</div>
+						<br>
+						<div class="form-group">
+							<label for="exampleInputPassword1">Date:</label>
+							<input type="date" name="fdate">
+						</div>
+						<br>
+						<button type="submit" class="btn btn-success">Finish Task</button>
+					</form>
+				  </div>
+				  <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">
+				  	<form method="POST" id="rem">
+						{% csrf_token %}
+						<br>
+						<input type="hidden" name="form_type" value="rem">
+						<div class="form-group">
+							<label for="exampleInputPassword1">Task ID:</label>
+							<input type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter Task ID" name="index">
+						</div>
+						<br>
+						<button type="submit" class="btn btn-danger">Delete Task</button>
+					</form>
+				  </div>
+				</div>
+	          </div>
+	        </div>
+	        <br>
+	        <button type="button" class="btn btn-primary"><a href="landing/" style="color: white;">Go back</a></button>
+	    </div>
+	  </div>
+	</div>
+	</section>
+	<br>
+	<br>
+	<br>
+	<br>
+{% endblock %}

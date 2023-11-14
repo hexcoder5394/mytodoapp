@@ -1,0 +1,115 @@
+{% extends 'master.html' %}
+
+{% block content %}
+	<nav class="navbar fixed-top navbar-dark bg-dark">
+	  <span class="navbar-brand mb-0 h1">Mytodo List...</span>
+	</nav>
+	<section class="vh-100 gradient-custom">
+	  <div class="container py-5 h-100">
+	    <div class="row d-flex justify-content-center align-items-center h-100">
+	      <div class="col col-xl-10">
+	      	
+	        <div class="card">
+	          <div class="card-body p-5">
+
+	            <!-- Tabs navs -->
+	            <nav>
+				  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+				    <button class=" btn btn-primary nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Active Tasks</button>
+				    <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Finished Tasks</button>
+				    <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">All Tasks</button>
+				  </div>
+				</nav>
+	            <!-- Tabs navs -->
+
+	            <!-- Tabs content -->
+	            <div class="tab-content" id="nav-tabContent">
+				  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+				  	<br>
+				  	<table class="table">
+					  <thead class="thead-dark">
+					    <tr>
+					      <th scope="col">Task ID</th>
+					      <th scope="col">Task</th>
+					      <th scope="col">Priority</th>
+					      <th scope="col">Date</th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					  	<ol start="0">
+					  		{% for item in aitems %}
+					    	<tr>
+					    		<td>{{item.id}}</td>
+					    		<td>{{item.task}}</td>
+					    		<td>{{item.pri}}</td>
+					    		<td>{{item.date}}</td>
+					    	</tr>
+					    	{% endfor %}
+					  	</ol>
+					  </tbody>
+					</table>
+				  </div>
+				  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
+				  	<br>
+				  	<table class="table">
+					  <thead class="thead-dark">
+					    <tr>
+					      <th scope="col">Task</th>
+					      <th scope="col">Priority</th>
+					      <th scope="col">Date</th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					  		{% for item in fitems %}
+					    	<tr>
+					    		<td><input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="..." checked>  {{item.task}}</td>
+					    		<td>{{item.pri}}</td>
+					    		<td>{{item.date}}</td>
+					    	</tr>
+					    	{% endfor %}
+					  </tbody>
+					</table>
+				  </div>
+				  <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">
+				  	<br>
+				  	<table class="table">
+					  <thead class="thead-dark">
+					    <tr>
+					      <th scope="col">Task</th>
+					      <th scope="col">Priority</th>
+					      <th scope="col">Date</th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					    	{% for item in fitems %}
+					    	<tr>
+					    		<td><input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="..." checked>  {{item.task}}</td>
+					    		<td>{{item.pri}}</td>
+					    		<td>{{item.date}}</td>
+					    	</tr>
+					    	{% endfor %}
+
+					    	{% for item in aitems %}
+					    	<tr>
+					    		<td><input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">  {{item.task}}</td>
+					    		<td>{{item.pri}}</td>
+					    		<td>{{item.date}}</td>
+					    	</tr>
+					    	{% endfor %}
+					  </tbody>
+					</table>
+				  </div>
+				</div>
+	            <!-- Tabs content -->
+
+	          </div>
+	        </div>
+	        <br>
+	        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+			  <button type="button" class="btn btn-primary"><a href="/todolist" style="color: white;">Add or Finish Task</a></button>
+			</div>
+	      </div>
+	    </div>
+	  </div>
+	</section>
+{% endblock %}
