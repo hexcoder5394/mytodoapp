@@ -1,5 +1,4 @@
-# mytodoapp
-# Django Todo List App
+# Django Todo List App (Mytodoapp)
 
 A simple Todo List application built using Python, Django, HTML, and Bootstrap.
 
