@@ -76,8 +76,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Links
 
-- [Visit my website]: (iamachintha.site)
-- [Visit my Blog]: (https://achisnap.wordpress.com/)
-- [Visit my projects page]: (https://allmyprojects0.wordpress.com)
+- [Visit my website](iamachintha.site)
+- [Visit my Blog](https://achisnap.wordpress.com/)
+- [Visit my projects page](https://allmyprojects0.wordpress.com)
 
 
